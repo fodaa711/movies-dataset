@@ -1,11 +1,23 @@
 import altair as alt
 import pandas as pd
 import streamlit as st
+import pickle
+import streamlit as st
+
+# Load the pickled objects
+movie_list = pickle.load(open('movie_list.pkl', 'rb'))
+similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 # Show the page title and description.
 st.set_page_config(page_title="Movies dataset", page_icon="🎬")
 st.title("🎬 Movies recommender dataset")
 option = st.selectbox('How would you be contacted?', ('email', 'Home phone', 'mobile phone'))
+
+# Example usage
+st.write("Movie List:", movie_list)
+st.write("Similarity Matrix:", similarity)
+
+
 
 
 st.write(
