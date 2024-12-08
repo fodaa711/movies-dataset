@@ -6,7 +6,7 @@ import streamlit as st
 
 # Load the pickled objects
 movie_list = pickle.load(open('movie_list.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+
 
 # Show the page title and description.
 st.set_page_config(page_title="Movies dataset", page_icon="🎬")
