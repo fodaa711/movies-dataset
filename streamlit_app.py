@@ -71,5 +71,16 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
+import os
+
+# Specify the path to the file
+file_path = 'model/movie_dict.pkl'  # Adjust this path based on where your file is located in your project
+
+# Check if the file exists
+if os.path.exists(file_path):
+    print("File found!")
+else:
+    print("File not found. Check your path.")
+
 
       
