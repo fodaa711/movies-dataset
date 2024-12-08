@@ -1,18 +1,23 @@
 import altair as alt
-import pandas as pd
 import streamlit as st
 import pickle
-import streamlit as st
+import pandas as pd
 
-# Load the pickled objects
-movie_dict = pickle.load(open('movie_dict.pkl', 'rb'))
-movie=pd.Dataframe(movie_dict)
+movies_dict = pickle.load(open('movie_dict.pkl','rb'))
+movies = pd. DataFrame(movies_dict)
+I
+
+st.title('Movie Recommender System')
+
+option = st.selectbox(
+'How would you like to be contacted?',
+movies['title'].values)|
 
 
 # Show the page title and description.
 st.set_page_config(page_title="Movies dataset", page_icon="🎬")
 st.title("🎬 Movies recommender dataset")
-option = st.selectbox('How would you be contacted?', movie['title'].values)
+
 
 # Example usage
 st.write("Movie List:", movie_list)
