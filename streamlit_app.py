@@ -6,12 +6,13 @@ import streamlit as st
 
 # Load the pickled objects
 movie_list = pickle.load(open('movie_list.pkl', 'rb'))
+movies_list=movies_list['titles'].values
 
 
 # Show the page title and description.
 st.set_page_config(page_title="Movies dataset", page_icon="🎬")
 st.title("🎬 Movies recommender dataset")
-option = st.selectbox('How would you be contacted?', ('email', 'Home phone', 'mobile phone'))
+option = st.selectbox('How would you be contacted?', ('movies_list'))
 
 # Example usage
 st.write("Movie List:", movie_list)
