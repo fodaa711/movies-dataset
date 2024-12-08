@@ -1,3 +1,4 @@
+import os
 import pickle
 import streamlit as st
 import requests
@@ -38,8 +39,16 @@ def recommend(movie):
 # Streamlit app
 st.header('Movie Recommender System')
 
+# Specify the path to the movie dictionary file
+file_path = 'model/movie_dict.pkl'  # Adjust the path if your file is in a different location
+
+# Check if the file exists
+if not os.path.exists(file_path):
+    st.error("File not found. Please ensure 'movie_dict.pkl' is in the 'model/' folder.")
+    st.stop()
+
 # Load movie list
-movies_dict = pickle.load(open('model/movie_dict.pkl', 'rb'))
+movies_dict = pickle.load(open(file_path, 'rb'))
 movies = pd.DataFrame(movies_dict)
 
 # Combine relevant features into a single string for similarity computation
@@ -71,16 +80,7 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
-import os
 
-# Specify the path to the file
-file_path = 'model/movie_dict.pkl'  # Adjust this path based on where your file is located in your project
-
-# Check if the file exists
-if os.path.exists(file_path):
-    print("File found!")
-else:
-    print("File not found. Check your path.")
 
 
       
