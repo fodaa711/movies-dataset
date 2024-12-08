@@ -5,9 +5,8 @@ import streamlit as st
 # Show the page title and description.
 st.set_page_config(page_title="Movies dataset", page_icon="🎬")
 st.title("🎬 Movies recommender dataset")
-option=st.selectbox('
-How would you be contacted?',
-('email','Home phone','mobile phone'))
+option = st.selectbox('How would you be contacted?', ('email', 'Home phone', 'mobile phone'))
+
 
 st.write(
     """
