@@ -3,20 +3,23 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-movies_dict = pickle.load(open('movie_dict.pkl','rb'))
-movies = pd. DataFrame(movies_dict)
-I
+# Load the movies dictionary and create a DataFrame
+movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
+movies = pd.DataFrame(movies_dict)
 
-st.title('Movie Recommender System')
+# Set page configuration and title
+st.set_page_config(page_title="Movies Recommender System", page_icon="🎬")
+st.title("🎬 Movie Recommender System")
 
+# Add a selectbox for movie titles
 option = st.selectbox(
-'How would you like to be contacted?',
-movies['title'].values)|
+    'Select a movie to get recommendations:',
+    movies['title'].values
+)
 
+# Show the selected movie
+st.write(f"You selected: {option}")
 
-# Show the page title and description.
-st.set_page_config(page_title="Movies dataset", page_icon="🎬")
-st.title("🎬 Movies recommender dataset")
 
 
 # Example usage
