@@ -80,6 +80,18 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
+import pickle
+
+movies = pickle.load(open('streamlit_app/movie_list.pkl', 'rb'))
+similarity = pickle.load(open('streamlit_app/movie_dict.pkl', 'rb'))
+import os
+
+
+base_path = os.path.dirname(__file__)
+movies = pickle.load(open(os.path.join(base_path, 'movie_list.pkl'), 'rb'))
+similarity = pickle.load(open(os.path.join(base_path, 'movie_dict.pkl'), 'rb'))
+
+
 
 
 
