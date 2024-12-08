@@ -5,14 +5,14 @@ import pickle
 import streamlit as st
 
 # Load the pickled objects
-movie_list = pickle.load(open('movie_list.pkl', 'rb'))
-movies_list=movies_list['titles'].values
+movie_dict = pickle.load(open('movie_dict.pkl', 'rb'))
+movie=pd.Dataframe(movie_dict)
 
 
 # Show the page title and description.
 st.set_page_config(page_title="Movies dataset", page_icon="🎬")
 st.title("🎬 Movies recommender dataset")
-option = st.selectbox('How would you be contacted?', ('movies_list'))
+option = st.selectbox('How would you be contacted?', movie['title'].values)
 
 # Example usage
 st.write("Movie List:", movie_list)
